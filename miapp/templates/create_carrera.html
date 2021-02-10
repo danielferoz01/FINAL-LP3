@@ -1,0 +1,26 @@
+
+create_carrera.html
+
+{% extends 'layout.html' %}
+{% load filters %}
+
+{% block title %}
+    Agregar Carrera
+{% endblock %}
+{% block content %}
+    <H1 class="title"> 
+        Agregar Carrera
+    </H1>
+    {% if form.errors %}
+        <strong class="rojo">
+            Hay errores en el Formulario
+            {{form.errors}}
+        </strong>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Agregar" />
+
+    </form>
+{% endblock %}

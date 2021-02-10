@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{titulo}}
+{% endblock title %}
+
+{% block content %}
+    <h1 class="title"> {{titulo}} </h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    
+    {% for curso in cursos %}
+        <div class="curso-item">
+            {% if curso.imagen != 'null' %}
+                <div class="image">
+                    <img src="{{curso.imagen.url}}" />
+                </div>
+            {% endif %}
+            <div class="data">
+                <h2>
+                    Nombre: {{curso.nombre}}
+                </h2>
+                <h2>
+                    Horas: {{curso.hora}}
+                </h2>
+                <h2>
+                    Créditos: {{curso.creditos}}
+                </h2>
+                <h2>
+                    Estado: {{curso.estado}}
+                </h2>
+                <span class="date">
+                    Creado: {{curso.creado}}
+                </span>
+                
+                <p>
+                   
+                    <br>
+                    <a href="{% url 'eliminar_curso' id=curso.id %}" class="btn btn-delete">
+                        Eliminar
+                    </a>
+                </p>
+            </div>
+            <div class="clearfix">
+            </div>
+        </div>    
+    {% endfor %}
+    
+{% endblock content %}

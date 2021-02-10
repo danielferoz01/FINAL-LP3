@@ -1,0 +1,61 @@
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block title %} {% endblock title %} | EQUIPO 06
+    </title>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Style.css' %}">
+
+</head>
+
+<body>
+    <header>
+        <div id="logotipo">
+            <img src="{% static 'images/logoUNTELS.png' %}" />
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="{% url 'index' %}">INICIO</a>
+            </li>
+            <li>
+                <a href="{% url 'listar_cursos' %}">CURSOS</a>
+
+            </li>
+            <li>
+                <a href="{% url 'crear_curso' %}">CREAR CURSO</a>
+            </li>
+            <li>
+                <a href="{% url 'listar_carreras' %}">CARRERAS</a>
+            </li>
+            <li>
+                <a href="{% url 'create_carrera' %}">CREAR CARRERA</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="barra">
+        <span class="esquina-izquierda"></span>
+        <span class="relleno-barra"></span>
+        <span class="esquina-derecha"></span>
+
+    </div>
+
+    <div id="content">
+        <div class="box">
+            {% block content %}
+            <strong> 
+                    Contenido por defecto desde layout.html  
+                    </strong> {% endblock content %}
+        </div>
+    </div>
+    <footer>
+        UNTELS - Lenguaje de Programación III &copy; EQUIPO 6{% now "d/m/y h:m:s" %}
+    </footer>
+</body>
+
+</html>
